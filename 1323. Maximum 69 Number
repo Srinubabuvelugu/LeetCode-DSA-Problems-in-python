@@ -1,0 +1,12 @@
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        res = num
+        str_num = str(num)
+        for i in range(len(str_num)):
+            if str_num[i] == "9":
+                val = str_num[:i] + "6" + str_num[i+1:]
+                res = int(val) if int(val) > res else res
+            if str_num[i] == "6":
+                val = str_num[:i] + "9" + str_num[i+1:]
+                res = int(val) if int(val) > res else res
+        return res
